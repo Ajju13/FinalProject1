@@ -1,0 +1,118 @@
+﻿@model FinalProject1.Models.Admin
+
+
+@{
+    ViewBag.Title = "AdminMain";
+    Layout = "~/Views/Shared/LayoutPage.cshtml";
+}
+
+
+<div class="container mt-4">
+    <!-- Student Profile Section -->
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title mb-3">Admin Portal</strong>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex">
+                        <div class="text-left mr-3">
+                            <h5 class="mt-2 mb-1">Admin ID: @Model.Admin_ID</h5> <!-- Display Student ID -->
+                            <h5 class="mt-2 mb-1">Admin Name: @Model.Admin_Name</h5>
+                            <h5 class="mt-2 mb-1">Phone: @Model.Admin_Phone</h5>
+                        </div>
+                        <div class="mx-auto d-block">
+                            @if (!string.IsNullOrEmpty(Model.Admin_Image))
+                            {
+                                <img src="@Url.Content(Model.Admin_Image)" alt="Student Image" style="width: 100px; height: 100px; border-radius: 50%;" />
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Widgets Section -->
+<div class="row justify-content-center mb-4">
+    <!-- Student Section -->
+    <div class="col-md-4">
+        <div class="card h-100 d-flex flex-column">
+            <div class="card-body">
+                <div class="stat-widget-one">
+                    <div class="stat-icon dib">
+                        <i class="ti-user text-muted"></i>
+                    </div>
+                    <div class="stat-content dib">
+                        <div class="stat-text">Total Students</div>
+                        <div class="stat-digit">@ViewBag.TotalStudents</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Section -->
+    <div class="col-md-4">
+        <div class="card h-100 d-flex flex-column">
+            <div class="card-body">
+                <div class="stat-widget-one">
+                    <div class="stat-icon dib">
+                        <i class="ti-user text-muted"></i>
+                    </div>
+                    <div class="stat-content dib">
+                        <div class="stat-text">Total Users</div>
+                        <div class="stat-digit">@ViewBag.TotalUsers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Class Section -->
+    <div class="col-md-4">
+        <div class="card h-100 d-flex flex-column">
+            <div class="card-body">
+                <div class="stat-widget-one">
+                    <div class="stat-icon dib">
+                        <i class="ti-book text-muted"></i>
+                    </div>
+                    <div class="stat-content dib">
+                        <div class="stat-text">Total Classes</div>
+                        <div class="stat-digit">@ViewBag.TotalClasses</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Button Section -->
+<div class="row justify-content-center">
+    <!-- First Line of Buttons -->
+    <div class="col-md-3">
+        @Html.ActionLink("Add New User", "AddUser", "Home", null, new { @class = "btn btn-primary btn-lg mb-3" })
+        @Html.ActionLink("View All Users", "ViewUser", "Home", null, new { @class = "btn btn-primary btn-lg mb-3" })
+        @Html.ActionLink("Add New Student", "AddStudent", "Student", null, new { @class = "btn btn-primary btn-lg mb-3" })
+        @Html.ActionLink("View All Students", "ViewStudents", "Student", null, new { @class = "btn btn-primary btn-lg mb-3" })
+    </div>
+
+    <!-- Second Line of Buttons -->
+    <div class="col-md-3">
+        @Html.ActionLink("Add New Faculty", "AddFaculty", "Faculty", null, new { @class = "btn btn-primary btn-lg mb-3" })
+        @Html.ActionLink("View All Faculty", "ViewFaculty", "Faculty", null, new { @class = "btn btn-primary btn-lg mb-3" })
+        @Html.ActionLink("Add New Admin", "AddAdmin", "Admin", null, new { @class = "btn btn-primary btn-lg mb-3" })
+        @Html.ActionLink("View All Admins", "ViewAdmin", "Admin", null, new { @class = "btn btn-primary btn-lg mb-3" })
+    </div>
+
+    <!-- Third Line of Buttons -->
+    <div class="col-md-3">
+        @Html.ActionLink("Add New Course", "AddCourse", "Course", null, new { @class = "btn btn-primary btn-lg mb-3" })
+        @Html.ActionLink("View All Course", "ViewCourse", "Course", null, new { @class = "btn btn-primary btn-lg mb-3" })
+        @Html.ActionLink("Add New Class", "AddClass", "Class", null, new { @class = "btn btn-primary btn-lg mb-3" })
+        @Html.ActionLink("View All Class", "ViewClass", "Class", null, new { @class = "btn btn-primary btn-lg mb-3" })
+        @Html.ActionLink("Course Enrollment", "CourseSelection", "Class", null, new { @class = "btn btn-primary btn-lg mb-3" })
+    </div>
+</div>

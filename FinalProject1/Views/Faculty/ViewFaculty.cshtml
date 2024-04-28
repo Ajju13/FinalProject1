@@ -1,0 +1,66 @@
+﻿@model IEnumerable<FinalProject1.Models.Facutly>
+
+@{
+    ViewBag.Title = "ViewFaculty";
+    Layout = "~/Views/Shared/LayoutPage.cshtml";
+}
+
+<h2>View Faculty</h2>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Teacher_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Teacher_Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Teacher_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Teacher_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Teacher_Image)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher_Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher_Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher_Address)
+            </td>
+            <td>
+                @if (!string.IsNullOrEmpty(item.Teacher_Image))
+                {
+                    <img src="@Url.Content(item.Teacher_Image)" alt="Faculty Image" style="width: 50px; height: 50px;" />
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditFaculty", new { id = item.Teacher_ID })
+                @using (Html.BeginForm("DeleteFaculty", "Faculty"))
+                {
+                    @Html.Hidden("id", item.Teacher_ID)
+                    <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this student?');" />
+                }
+            </td>
+        </tr>
+    }
+
+</table>

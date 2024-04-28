@@ -1,0 +1,51 @@
+﻿@model IEnumerable<FinalProject1.Models.Class>
+
+@{
+    ViewBag.Title = "ViewClass";
+    Layout = "~/Views/Shared/LayoutPage.cshtml";
+}
+
+<h2>ViewClass</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Class_Day)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Class_session)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cours.Course_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Facutly.Teacher_Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Class_Day)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Class_session)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cours.Course_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Facutly.Teacher_Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Class_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Class_ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<FinalProject1.Models.User>
+
+@{
+    ViewBag.Title = "ViewUser";
+    Layout = "~/Views/Shared/LayoutPage.cshtml";
+}
+
+<h2>ViewUser</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.user_type)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.user_type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditUser", new { id = item.Acc_ID }) |
+            @using (Html.BeginForm("DeleteUser", "Home"))
+            {
+                @Html.Hidden("id", item.Acc_ID)
+                <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this student?');" />
+            }
+        </td>
+    </tr>
+}
+
+</table>

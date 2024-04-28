@@ -1,0 +1,91 @@
+﻿@model FinalProject1.Models.Facutly
+
+@{
+    ViewBag.Title = "FacultyMain";
+    Layout = "~/Views/Shared/LayoutPage.cshtml";
+}
+
+
+
+<div class="container mt-4">
+    <!-- Student Profile Section -->
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title mb-3">Faculty Portal</strong>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex">
+                        <div class="text-left mr-3">
+                            <h5 class="mt-2 mb-1">Faculty ID: @Model.Teacher_ID</h5> <!-- Display Student ID -->
+                            <h5 class="mt-2 mb-1">Faculty Name: @Model.Teacher_Name</h5>
+                            <h5 class="mt-2 mb-1">Phone: @Model.Teacher_Phone</h5>
+                        </div>
+                        <div class="mx-auto d-block">
+                            @if (!string.IsNullOrEmpty(Model.Teacher_Image))
+                            {
+                                <img src="@Url.Content(Model.Teacher_Image)" alt="Faculty Image" style="width: 100px; height: 100px; border-radius: 50%;" />
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Widgets Section -->
+<div class="row justify-content-center mb-4">
+    <!-- Assignment Section -->
+    <div class="col-md-4">
+        <div class="card h-100 d-flex flex-column">
+            <div class="card-body">
+                <div class="stat-widget-one">
+                    <a href="~/Assets/assignment.png">
+                        <img class="stat-icon dib" src="~/Assets/assignment.png" alt="Assignment Icon" style="width: 50px; height: 50px;">
+                    </a>
+                    <div class="stat-content dib">
+                        <div class="stat-text">Next Assignment Due in</div>
+                        <div class="stat-digit">10 Hours</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CGPA Section -->
+    <div class="col-md-4">
+        <div class="card h-100 d-flex flex-column">
+            <div class="card-body">
+                <div class="stat-widget-four">
+                    <div class="stat-icon dib">
+                        <i class="ti-stats-up text-muted"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-heading">Current CGPA</div>
+                            <div class="stat-text">3.44</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fee Section -->
+    <div class="col-md-4">
+        <div class="card h-100 d-flex flex-column">
+            <div class="card-body">
+                <div class="stat-widget-one">
+                    <div class="stat-icon dib"><i class="ti-money text-success border-success"></i></div>
+                    <div class="stat-content dib">
+                        <div class="stat-text">Fee Remaining</div>
+                        <div class="stat-digit">1,012</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

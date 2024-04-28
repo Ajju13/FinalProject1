@@ -1,0 +1,1011 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FINALPROJECTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Admin_ID" />
+          </Key>
+          <Property Name="Admin_ID" Type="bigint" Nullable="false" />
+          <Property Name="Admin_Email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Admin_Phone" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Admin_Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Admin_Address" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Admin_Image" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Assignment">
+          <Key>
+            <PropertyRef Name="Assignment_id" />
+          </Key>
+          <Property Name="Assignment_id" Type="bigint" Nullable="false" />
+          <Property Name="Class_ID" Type="bigint" Nullable="false" />
+          <Property Name="Total_Marks" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Assignment_Submission">
+          <Key>
+            <PropertyRef Name="Assignment_Submission_id" />
+          </Key>
+          <Property Name="Assignment_Submission_id" Type="bigint" Nullable="false" />
+          <Property Name="Assignment_ID" Type="bigint" Nullable="false" />
+          <Property Name="Student_ID" Type="bigint" Nullable="false" />
+          <Property Name="Marks_Obtained" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="Class_ID" />
+          </Key>
+          <Property Name="Class_ID" Type="bigint" Nullable="false" />
+          <Property Name="Course_ID" Type="bigint" Nullable="false" />
+          <Property Name="Teacher_ID" Type="bigint" Nullable="false" />
+          <Property Name="Class_Day" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Class_session" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Class_Enrolment">
+          <Key>
+            <PropertyRef Name="Class_Enrolment_id" />
+          </Key>
+          <Property Name="Class_Enrolment_id" Type="bigint" Nullable="false" />
+          <Property Name="Class_ID" Type="bigint" Nullable="false" />
+          <Property Name="Student_ID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Courses">
+          <Key>
+            <PropertyRef Name="Course_ID" />
+          </Key>
+          <Property Name="Course_ID" Type="bigint" Nullable="false" />
+          <Property Name="Course_Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Pre_Requisite_Course_ID" Type="bigint" />
+          <Property Name="Credit_Hours" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Facutly">
+          <Key>
+            <PropertyRef Name="Teacher_ID" />
+          </Key>
+          <Property Name="Teacher_ID" Type="bigint" Nullable="false" />
+          <Property Name="Teacher_Email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Teacher_Phone" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Teacher_Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Teacher_Address" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Teacher_Image" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fees">
+          <Key>
+            <PropertyRef Name="Fees_Collection_id" />
+          </Key>
+          <Property Name="Fees_Collection_id" Type="bigint" Nullable="false" />
+          <Property Name="Student_ID" Type="bigint" Nullable="false" />
+          <Property Name="Month" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Total_Fees" Type="bigint" Nullable="false" />
+          <Property Name="Amount_Paid" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Grade">
+          <Key>
+            <PropertyRef Name="Grade_id" />
+          </Key>
+          <Property Name="Grade_id" Type="bigint" Nullable="false" />
+          <Property Name="Grade" Type="bigint" Nullable="false" />
+          <Property Name="Min_Marks" Type="bigint" Nullable="false" />
+          <Property Name="Max_Marks" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Marks">
+          <Key>
+            <PropertyRef Name="Marks_ID" />
+          </Key>
+          <Property Name="Marks_ID" Type="bigint" Nullable="false" />
+          <Property Name="Student_ID" Type="bigint" Nullable="false" />
+          <Property Name="Class_ID" Type="bigint" Nullable="false" />
+          <Property Name="Assignment_Marks" Type="bigint" Nullable="false" />
+          <Property Name="Quiz_Marks" Type="bigint" Nullable="false" />
+          <Property Name="Mid_Marks" Type="bigint" Nullable="false" />
+          <Property Name="Final_Marks" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Quiz">
+          <Key>
+            <PropertyRef Name="Quiz_ID" />
+          </Key>
+          <Property Name="Quiz_ID" Type="bigint" Nullable="false" />
+          <Property Name="Class_ID" Type="bigint" Nullable="false" />
+          <Property Name="Total_Marks" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Quiz_Submission">
+          <Key>
+            <PropertyRef Name="Quiz_Submission_id" />
+          </Key>
+          <Property Name="Quiz_Submission_id" Type="bigint" Nullable="false" />
+          <Property Name="Quiz_ID" Type="bigint" Nullable="false" />
+          <Property Name="Student_ID" Type="bigint" Nullable="false" />
+          <Property Name="Marks_Obtained" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Salaries">
+          <Key>
+            <PropertyRef Name="Salary_ID" />
+          </Key>
+          <Property Name="Salary_ID" Type="bigint" Nullable="false" />
+          <Property Name="Teacher_ID" Type="bigint" Nullable="false" />
+          <Property Name="Month" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Gross_Salary" Type="bigint" Nullable="false" />
+          <Property Name="Bonus" Type="bigint" Nullable="false" />
+          <Property Name="Deductions" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Student_ID" />
+          </Key>
+          <Property Name="Student_ID" Type="bigint" Nullable="false" />
+          <Property Name="Student_Email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Student_Phone" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Student_Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Student_Address" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Student_Image" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Acc_ID" />
+          </Key>
+          <Property Name="Acc_ID" Type="bigint" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="user_type" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'admin_admin_email_foreign' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="admin_admin_email_foreign" />-->
+        <Association Name="assignment_class_id_foreign">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="Assignment" Type="Self.Assignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Class_ID" />
+            </Principal>
+            <Dependent Role="Assignment">
+              <PropertyRef Name="Class_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="assignment_submission_assignment_id_foreign">
+          <End Role="Assignment" Type="Self.Assignment" Multiplicity="1" />
+          <End Role="Assignment_Submission" Type="Self.Assignment_Submission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assignment">
+              <PropertyRef Name="Assignment_id" />
+            </Principal>
+            <Dependent Role="Assignment_Submission">
+              <PropertyRef Name="Assignment_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="assignment_submission_student_id_foreign">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Assignment_Submission" Type="Self.Assignment_Submission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Student_ID" />
+            </Principal>
+            <Dependent Role="Assignment_Submission">
+              <PropertyRef Name="Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="class_course_id_foreign">
+          <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+          <End Role="Class" Type="Self.Class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="Course_ID" />
+            </Principal>
+            <Dependent Role="Class">
+              <PropertyRef Name="Course_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="class_enrolment_class_id_foreign">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="Class_Enrolment" Type="Self.Class_Enrolment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Class_ID" />
+            </Principal>
+            <Dependent Role="Class_Enrolment">
+              <PropertyRef Name="Class_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="class_enrolment_student_id_foreign">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Class_Enrolment" Type="Self.Class_Enrolment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Student_ID" />
+            </Principal>
+            <Dependent Role="Class_Enrolment">
+              <PropertyRef Name="Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="class_teacher_id_foreign">
+          <End Role="Facutly" Type="Self.Facutly" Multiplicity="1" />
+          <End Role="Class" Type="Self.Class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facutly">
+              <PropertyRef Name="Teacher_ID" />
+            </Principal>
+            <Dependent Role="Class">
+              <PropertyRef Name="Teacher_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'facutly_teacher_email_foreign' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="facutly_teacher_email_foreign" />-->
+        <Association Name="fees_student_id_foreign">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Fees" Type="Self.Fees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Student_ID" />
+            </Principal>
+            <Dependent Role="Fees">
+              <PropertyRef Name="Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="marks_class_id_foreign">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="Marks" Type="Self.Marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Class_ID" />
+            </Principal>
+            <Dependent Role="Marks">
+              <PropertyRef Name="Class_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="marks_student_id_foreign">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Marks" Type="Self.Marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Student_ID" />
+            </Principal>
+            <Dependent Role="Marks">
+              <PropertyRef Name="Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="quiz_class_id_foreign">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="Quiz" Type="Self.Quiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Class_ID" />
+            </Principal>
+            <Dependent Role="Quiz">
+              <PropertyRef Name="Class_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="quiz_submission_quiz_id_foreign">
+          <End Role="Quiz" Type="Self.Quiz" Multiplicity="1" />
+          <End Role="Quiz_Submission" Type="Self.Quiz_Submission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quiz">
+              <PropertyRef Name="Quiz_ID" />
+            </Principal>
+            <Dependent Role="Quiz_Submission">
+              <PropertyRef Name="Quiz_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="quiz_submission_student_id_foreign">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Quiz_Submission" Type="Self.Quiz_Submission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Student_ID" />
+            </Principal>
+            <Dependent Role="Quiz_Submission">
+              <PropertyRef Name="Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="salaries_teacher_id_foreign">
+          <End Role="Facutly" Type="Self.Facutly" Multiplicity="1" />
+          <End Role="Salaries" Type="Self.Salaries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facutly">
+              <PropertyRef Name="Teacher_ID" />
+            </Principal>
+            <Dependent Role="Salaries">
+              <PropertyRef Name="Teacher_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'student_student_email_foreign' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="student_student_email_foreign" />-->
+        <EntityContainer Name="FINALPROJECTModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Assignment" EntityType="Self.Assignment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Assignment_Submission" EntityType="Self.Assignment_Submission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Class_Enrolment" EntityType="Self.Class_Enrolment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Facutly" EntityType="Self.Facutly" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fees" EntityType="Self.Fees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grade" EntityType="Self.Grade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Marks" EntityType="Self.Marks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quiz" EntityType="Self.Quiz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quiz_Submission" EntityType="Self.Quiz_Submission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salaries" EntityType="Self.Salaries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="assignment_class_id_foreign" Association="Self.assignment_class_id_foreign">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="Assignment" EntitySet="Assignment" />
+          </AssociationSet>
+          <AssociationSet Name="assignment_submission_assignment_id_foreign" Association="Self.assignment_submission_assignment_id_foreign">
+            <End Role="Assignment" EntitySet="Assignment" />
+            <End Role="Assignment_Submission" EntitySet="Assignment_Submission" />
+          </AssociationSet>
+          <AssociationSet Name="assignment_submission_student_id_foreign" Association="Self.assignment_submission_student_id_foreign">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Assignment_Submission" EntitySet="Assignment_Submission" />
+          </AssociationSet>
+          <AssociationSet Name="class_course_id_foreign" Association="Self.class_course_id_foreign">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Class" EntitySet="Class" />
+          </AssociationSet>
+          <AssociationSet Name="class_enrolment_class_id_foreign" Association="Self.class_enrolment_class_id_foreign">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="Class_Enrolment" EntitySet="Class_Enrolment" />
+          </AssociationSet>
+          <AssociationSet Name="class_enrolment_student_id_foreign" Association="Self.class_enrolment_student_id_foreign">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Class_Enrolment" EntitySet="Class_Enrolment" />
+          </AssociationSet>
+          <AssociationSet Name="class_teacher_id_foreign" Association="Self.class_teacher_id_foreign">
+            <End Role="Facutly" EntitySet="Facutly" />
+            <End Role="Class" EntitySet="Class" />
+          </AssociationSet>
+          <AssociationSet Name="fees_student_id_foreign" Association="Self.fees_student_id_foreign">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Fees" EntitySet="Fees" />
+          </AssociationSet>
+          <AssociationSet Name="marks_class_id_foreign" Association="Self.marks_class_id_foreign">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="Marks" EntitySet="Marks" />
+          </AssociationSet>
+          <AssociationSet Name="marks_student_id_foreign" Association="Self.marks_student_id_foreign">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Marks" EntitySet="Marks" />
+          </AssociationSet>
+          <AssociationSet Name="quiz_class_id_foreign" Association="Self.quiz_class_id_foreign">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="Quiz" EntitySet="Quiz" />
+          </AssociationSet>
+          <AssociationSet Name="quiz_submission_quiz_id_foreign" Association="Self.quiz_submission_quiz_id_foreign">
+            <End Role="Quiz" EntitySet="Quiz" />
+            <End Role="Quiz_Submission" EntitySet="Quiz_Submission" />
+          </AssociationSet>
+          <AssociationSet Name="quiz_submission_student_id_foreign" Association="Self.quiz_submission_student_id_foreign">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Quiz_Submission" EntitySet="Quiz_Submission" />
+          </AssociationSet>
+          <AssociationSet Name="salaries_teacher_id_foreign" Association="Self.salaries_teacher_id_foreign">
+            <End Role="Facutly" EntitySet="Facutly" />
+            <End Role="Salaries" EntitySet="Salaries" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FINALPROJECTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Admin_ID" />
+          </Key>
+          <Property Name="Admin_ID" Type="Int64" Nullable="false" />
+          <Property Name="Admin_Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Admin_Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Admin_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Admin_Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Admin_Image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Assignment">
+          <Key>
+            <PropertyRef Name="Assignment_id" />
+          </Key>
+          <Property Name="Assignment_id" Type="Int64" Nullable="false" />
+          <Property Name="Class_ID" Type="Int64" Nullable="false" />
+          <Property Name="Total_Marks" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Class" Relationship="Self.assignment_class_id_foreign" FromRole="Assignment" ToRole="Class" />
+          <NavigationProperty Name="Assignment_Submission" Relationship="Self.assignment_submission_assignment_id_foreign" FromRole="Assignment" ToRole="Assignment_Submission" />
+        </EntityType>
+        <EntityType Name="Assignment_Submission">
+          <Key>
+            <PropertyRef Name="Assignment_Submission_id" />
+          </Key>
+          <Property Name="Assignment_Submission_id" Type="Int64" Nullable="false" />
+          <Property Name="Assignment_ID" Type="Int64" Nullable="false" />
+          <Property Name="Student_ID" Type="Int64" Nullable="false" />
+          <Property Name="Marks_Obtained" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Assignment" Relationship="Self.assignment_submission_assignment_id_foreign" FromRole="Assignment_Submission" ToRole="Assignment" />
+          <NavigationProperty Name="Student" Relationship="Self.assignment_submission_student_id_foreign" FromRole="Assignment_Submission" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="Class_ID" />
+          </Key>
+          <Property Name="Class_ID" Type="Int64" Nullable="false" />
+          <Property Name="Course_ID" Type="Int64" Nullable="false" />
+          <Property Name="Teacher_ID" Type="Int64" Nullable="false" />
+          <Property Name="Class_Day" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Class_session" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Assignments" Relationship="Self.assignment_class_id_foreign" FromRole="Class" ToRole="Assignment" />
+          <NavigationProperty Name="Cours" Relationship="Self.class_course_id_foreign" FromRole="Class" ToRole="Courses" />
+          <NavigationProperty Name="Class_Enrolment" Relationship="Self.class_enrolment_class_id_foreign" FromRole="Class" ToRole="Class_Enrolment" />
+          <NavigationProperty Name="Facutly" Relationship="Self.class_teacher_id_foreign" FromRole="Class" ToRole="Facutly" />
+          <NavigationProperty Name="Marks" Relationship="Self.marks_class_id_foreign" FromRole="Class" ToRole="Marks" />
+          <NavigationProperty Name="Quizs" Relationship="Self.quiz_class_id_foreign" FromRole="Class" ToRole="Quiz" />
+        </EntityType>
+        <EntityType Name="Class_Enrolment">
+          <Key>
+            <PropertyRef Name="Class_Enrolment_id" />
+          </Key>
+          <Property Name="Class_Enrolment_id" Type="Int64" Nullable="false" />
+          <Property Name="Class_ID" Type="Int64" Nullable="false" />
+          <Property Name="Student_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Class" Relationship="Self.class_enrolment_class_id_foreign" FromRole="Class_Enrolment" ToRole="Class" />
+          <NavigationProperty Name="Student" Relationship="Self.class_enrolment_student_id_foreign" FromRole="Class_Enrolment" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Cours">
+          <Key>
+            <PropertyRef Name="Course_ID" />
+          </Key>
+          <Property Name="Course_ID" Type="Int64" Nullable="false" />
+          <Property Name="Course_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pre_Requisite_Course_ID" Type="Int64" />
+          <Property Name="Credit_Hours" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Classes" Relationship="Self.class_course_id_foreign" FromRole="Courses" ToRole="Class" />
+        </EntityType>
+        <EntityType Name="Facutly">
+          <Key>
+            <PropertyRef Name="Teacher_ID" />
+          </Key>
+          <Property Name="Teacher_ID" Type="Int64" Nullable="false" />
+          <Property Name="Teacher_Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Teacher_Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Teacher_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Teacher_Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Teacher_Image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Classes" Relationship="Self.class_teacher_id_foreign" FromRole="Facutly" ToRole="Class" />
+          <NavigationProperty Name="Salaries" Relationship="Self.salaries_teacher_id_foreign" FromRole="Facutly" ToRole="Salaries" />
+        </EntityType>
+        <EntityType Name="Fee">
+          <Key>
+            <PropertyRef Name="Fees_Collection_id" />
+          </Key>
+          <Property Name="Fees_Collection_id" Type="Int64" Nullable="false" />
+          <Property Name="Student_ID" Type="Int64" Nullable="false" />
+          <Property Name="Month" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Total_Fees" Type="Int64" Nullable="false" />
+          <Property Name="Amount_Paid" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="Self.fees_student_id_foreign" FromRole="Fees" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Grade">
+          <Key>
+            <PropertyRef Name="Grade_id" />
+          </Key>
+          <Property Name="Grade_id" Type="Int64" Nullable="false" />
+          <Property Name="Grade1" Type="Int64" Nullable="false" />
+          <Property Name="Min_Marks" Type="Int64" Nullable="false" />
+          <Property Name="Max_Marks" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mark">
+          <Key>
+            <PropertyRef Name="Marks_ID" />
+          </Key>
+          <Property Name="Marks_ID" Type="Int64" Nullable="false" />
+          <Property Name="Student_ID" Type="Int64" Nullable="false" />
+          <Property Name="Class_ID" Type="Int64" Nullable="false" />
+          <Property Name="Assignment_Marks" Type="Int64" Nullable="false" />
+          <Property Name="Quiz_Marks" Type="Int64" Nullable="false" />
+          <Property Name="Mid_Marks" Type="Int64" Nullable="false" />
+          <Property Name="Final_Marks" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Class" Relationship="Self.marks_class_id_foreign" FromRole="Marks" ToRole="Class" />
+          <NavigationProperty Name="Student" Relationship="Self.marks_student_id_foreign" FromRole="Marks" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Quiz">
+          <Key>
+            <PropertyRef Name="Quiz_ID" />
+          </Key>
+          <Property Name="Quiz_ID" Type="Int64" Nullable="false" />
+          <Property Name="Class_ID" Type="Int64" Nullable="false" />
+          <Property Name="Total_Marks" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Class" Relationship="Self.quiz_class_id_foreign" FromRole="Quiz" ToRole="Class" />
+          <NavigationProperty Name="Quiz_Submission" Relationship="Self.quiz_submission_quiz_id_foreign" FromRole="Quiz" ToRole="Quiz_Submission" />
+        </EntityType>
+        <EntityType Name="Quiz_Submission">
+          <Key>
+            <PropertyRef Name="Quiz_Submission_id" />
+          </Key>
+          <Property Name="Quiz_Submission_id" Type="Int64" Nullable="false" />
+          <Property Name="Quiz_ID" Type="Int64" Nullable="false" />
+          <Property Name="Student_ID" Type="Int64" Nullable="false" />
+          <Property Name="Marks_Obtained" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Quiz" Relationship="Self.quiz_submission_quiz_id_foreign" FromRole="Quiz_Submission" ToRole="Quiz" />
+          <NavigationProperty Name="Student" Relationship="Self.quiz_submission_student_id_foreign" FromRole="Quiz_Submission" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Salary">
+          <Key>
+            <PropertyRef Name="Salary_ID" />
+          </Key>
+          <Property Name="Salary_ID" Type="Int64" Nullable="false" />
+          <Property Name="Teacher_ID" Type="Int64" Nullable="false" />
+          <Property Name="Month" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gross_Salary" Type="Int64" Nullable="false" />
+          <Property Name="Bonus" Type="Int64" Nullable="false" />
+          <Property Name="Deductions" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Facutly" Relationship="Self.salaries_teacher_id_foreign" FromRole="Salaries" ToRole="Facutly" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Student_ID" />
+          </Key>
+          <Property Name="Student_ID" Type="Int64" Nullable="false" />
+          <Property Name="Student_Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Student_Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Student_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Student_Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Student_Image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Assignment_Submission" Relationship="Self.assignment_submission_student_id_foreign" FromRole="Student" ToRole="Assignment_Submission" />
+          <NavigationProperty Name="Class_Enrolment" Relationship="Self.class_enrolment_student_id_foreign" FromRole="Student" ToRole="Class_Enrolment" />
+          <NavigationProperty Name="Fees" Relationship="Self.fees_student_id_foreign" FromRole="Student" ToRole="Fees" />
+          <NavigationProperty Name="Marks" Relationship="Self.marks_student_id_foreign" FromRole="Student" ToRole="Marks" />
+          <NavigationProperty Name="Quiz_Submission" Relationship="Self.quiz_submission_student_id_foreign" FromRole="Student" ToRole="Quiz_Submission" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Acc_ID" />
+          </Key>
+          <Property Name="Acc_ID" Type="Int64" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="assignment_class_id_foreign">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="Assignment" Type="Self.Assignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Class_ID" />
+            </Principal>
+            <Dependent Role="Assignment">
+              <PropertyRef Name="Class_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="assignment_submission_assignment_id_foreign">
+          <End Role="Assignment" Type="Self.Assignment" Multiplicity="1" />
+          <End Role="Assignment_Submission" Type="Self.Assignment_Submission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assignment">
+              <PropertyRef Name="Assignment_id" />
+            </Principal>
+            <Dependent Role="Assignment_Submission">
+              <PropertyRef Name="Assignment_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="assignment_submission_student_id_foreign">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Assignment_Submission" Type="Self.Assignment_Submission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Student_ID" />
+            </Principal>
+            <Dependent Role="Assignment_Submission">
+              <PropertyRef Name="Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="class_course_id_foreign">
+          <End Role="Courses" Type="Self.Cours" Multiplicity="1" />
+          <End Role="Class" Type="Self.Class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="Course_ID" />
+            </Principal>
+            <Dependent Role="Class">
+              <PropertyRef Name="Course_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="class_enrolment_class_id_foreign">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="Class_Enrolment" Type="Self.Class_Enrolment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Class_ID" />
+            </Principal>
+            <Dependent Role="Class_Enrolment">
+              <PropertyRef Name="Class_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="class_teacher_id_foreign">
+          <End Role="Facutly" Type="Self.Facutly" Multiplicity="1" />
+          <End Role="Class" Type="Self.Class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facutly">
+              <PropertyRef Name="Teacher_ID" />
+            </Principal>
+            <Dependent Role="Class">
+              <PropertyRef Name="Teacher_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="marks_class_id_foreign">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="Marks" Type="Self.Mark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Class_ID" />
+            </Principal>
+            <Dependent Role="Marks">
+              <PropertyRef Name="Class_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="quiz_class_id_foreign">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="Quiz" Type="Self.Quiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Class_ID" />
+            </Principal>
+            <Dependent Role="Quiz">
+              <PropertyRef Name="Class_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="class_enrolment_student_id_foreign">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Class_Enrolment" Type="Self.Class_Enrolment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Student_ID" />
+            </Principal>
+            <Dependent Role="Class_Enrolment">
+              <PropertyRef Name="Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="salaries_teacher_id_foreign">
+          <End Role="Facutly" Type="Self.Facutly" Multiplicity="1" />
+          <End Role="Salaries" Type="Self.Salary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facutly">
+              <PropertyRef Name="Teacher_ID" />
+            </Principal>
+            <Dependent Role="Salaries">
+              <PropertyRef Name="Teacher_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fees_student_id_foreign">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Fees" Type="Self.Fee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Student_ID" />
+            </Principal>
+            <Dependent Role="Fees">
+              <PropertyRef Name="Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="marks_student_id_foreign">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Marks" Type="Self.Mark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Student_ID" />
+            </Principal>
+            <Dependent Role="Marks">
+              <PropertyRef Name="Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="quiz_submission_quiz_id_foreign">
+          <End Role="Quiz" Type="Self.Quiz" Multiplicity="1" />
+          <End Role="Quiz_Submission" Type="Self.Quiz_Submission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quiz">
+              <PropertyRef Name="Quiz_ID" />
+            </Principal>
+            <Dependent Role="Quiz_Submission">
+              <PropertyRef Name="Quiz_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="quiz_submission_student_id_foreign">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Quiz_Submission" Type="Self.Quiz_Submission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Student_ID" />
+            </Principal>
+            <Dependent Role="Quiz_Submission">
+              <PropertyRef Name="Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FINALPROJECTEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Assignments" EntityType="Self.Assignment" />
+          <EntitySet Name="Assignment_Submission" EntityType="Self.Assignment_Submission" />
+          <EntitySet Name="Classes" EntityType="Self.Class" />
+          <EntitySet Name="Class_Enrolment" EntityType="Self.Class_Enrolment" />
+          <EntitySet Name="Courses" EntityType="Self.Cours" />
+          <EntitySet Name="Facutlies" EntityType="Self.Facutly" />
+          <EntitySet Name="Fees" EntityType="Self.Fee" />
+          <EntitySet Name="Grades" EntityType="Self.Grade" />
+          <EntitySet Name="Marks" EntityType="Self.Mark" />
+          <EntitySet Name="Quizs" EntityType="Self.Quiz" />
+          <EntitySet Name="Quiz_Submission" EntityType="Self.Quiz_Submission" />
+          <EntitySet Name="Salaries" EntityType="Self.Salary" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="assignment_class_id_foreign" Association="Self.assignment_class_id_foreign">
+            <End Role="Class" EntitySet="Classes" />
+            <End Role="Assignment" EntitySet="Assignments" />
+          </AssociationSet>
+          <AssociationSet Name="assignment_submission_assignment_id_foreign" Association="Self.assignment_submission_assignment_id_foreign">
+            <End Role="Assignment" EntitySet="Assignments" />
+            <End Role="Assignment_Submission" EntitySet="Assignment_Submission" />
+          </AssociationSet>
+          <AssociationSet Name="assignment_submission_student_id_foreign" Association="Self.assignment_submission_student_id_foreign">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Assignment_Submission" EntitySet="Assignment_Submission" />
+          </AssociationSet>
+          <AssociationSet Name="class_course_id_foreign" Association="Self.class_course_id_foreign">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Class" EntitySet="Classes" />
+          </AssociationSet>
+          <AssociationSet Name="class_enrolment_class_id_foreign" Association="Self.class_enrolment_class_id_foreign">
+            <End Role="Class" EntitySet="Classes" />
+            <End Role="Class_Enrolment" EntitySet="Class_Enrolment" />
+          </AssociationSet>
+          <AssociationSet Name="class_teacher_id_foreign" Association="Self.class_teacher_id_foreign">
+            <End Role="Facutly" EntitySet="Facutlies" />
+            <End Role="Class" EntitySet="Classes" />
+          </AssociationSet>
+          <AssociationSet Name="marks_class_id_foreign" Association="Self.marks_class_id_foreign">
+            <End Role="Class" EntitySet="Classes" />
+            <End Role="Marks" EntitySet="Marks" />
+          </AssociationSet>
+          <AssociationSet Name="quiz_class_id_foreign" Association="Self.quiz_class_id_foreign">
+            <End Role="Class" EntitySet="Classes" />
+            <End Role="Quiz" EntitySet="Quizs" />
+          </AssociationSet>
+          <AssociationSet Name="class_enrolment_student_id_foreign" Association="Self.class_enrolment_student_id_foreign">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Class_Enrolment" EntitySet="Class_Enrolment" />
+          </AssociationSet>
+          <AssociationSet Name="salaries_teacher_id_foreign" Association="Self.salaries_teacher_id_foreign">
+            <End Role="Facutly" EntitySet="Facutlies" />
+            <End Role="Salaries" EntitySet="Salaries" />
+          </AssociationSet>
+          <AssociationSet Name="fees_student_id_foreign" Association="Self.fees_student_id_foreign">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Fees" EntitySet="Fees" />
+          </AssociationSet>
+          <AssociationSet Name="marks_student_id_foreign" Association="Self.marks_student_id_foreign">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Marks" EntitySet="Marks" />
+          </AssociationSet>
+          <AssociationSet Name="quiz_submission_quiz_id_foreign" Association="Self.quiz_submission_quiz_id_foreign">
+            <End Role="Quiz" EntitySet="Quizs" />
+            <End Role="Quiz_Submission" EntitySet="Quiz_Submission" />
+          </AssociationSet>
+          <AssociationSet Name="quiz_submission_student_id_foreign" Association="Self.quiz_submission_student_id_foreign">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Quiz_Submission" EntitySet="Quiz_Submission" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FINALPROJECTModelStoreContainer" CdmEntityContainer="FINALPROJECTEntities1">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="FINALPROJECTModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Admin_ID" ColumnName="Admin_ID" />
+                <ScalarProperty Name="Admin_Email" ColumnName="Admin_Email" />
+                <ScalarProperty Name="Admin_Phone" ColumnName="Admin_Phone" />
+                <ScalarProperty Name="Admin_Name" ColumnName="Admin_Name" />
+                <ScalarProperty Name="Admin_Address" ColumnName="Admin_Address" />
+                <ScalarProperty Name="Admin_Image" ColumnName="Admin_Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Assignments">
+            <EntityTypeMapping TypeName="FINALPROJECTModel.Assignment">
+              <MappingFragment StoreEntitySet="Assignment">
+                <ScalarProperty Name="Assignment_id" ColumnName="Assignment_id" />
+                <ScalarProperty Name="Class_ID" ColumnName="Class_ID" />
+                <ScalarProperty Name="Total_Marks" ColumnName="Total_Marks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Assignment_Submission">
+            <EntityTypeMapping TypeName="FINALPROJECTModel.Assignment_Submission">
+              <MappingFragment StoreEntitySet="Assignment_Submission">
+                <ScalarProperty Name="Assignment_Submission_id" ColumnName="Assignment_Submission_id" />
+                <ScalarProperty Name="Assignment_ID" ColumnName="Assignment_ID" />
+                <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
+                <ScalarProperty Name="Marks_Obtained" ColumnName="Marks_Obtained" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Classes">
+            <EntityTypeMapping TypeName="FINALPROJECTModel.Class">
+              <MappingFragment StoreEntitySet="Class">
+                <ScalarProperty Name="Class_ID" ColumnName="Class_ID" />
+                <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
+                <ScalarProperty Name="Teacher_ID" ColumnName="Teacher_ID" />
+                <ScalarProperty Name="Class_Day" ColumnName="Class_Day" />
+                <ScalarProperty Name="Class_session" ColumnName="Class_session" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Class_Enrolment">
+            <EntityTypeMapping TypeName="FINALPROJECTModel.Class_Enrolment">
+              <MappingFragment StoreEntitySet="Class_Enrolment">
+                <ScalarProperty Name="Class_Enrolment_id" ColumnName="Class_Enrolment_id" />
+                <ScalarProperty Name="Class_ID" ColumnName="Class_ID" />
+                <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="FINALPROJECTModel.Cours">
+              <MappingFragment StoreEntitySet="Courses">
+                <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
+                <ScalarProperty Name="Course_Name" ColumnName="Course_Name" />
+                <ScalarProperty Name="Pre_Requisite_Course_ID" ColumnName="Pre_Requisite_Course_ID" />
+                <ScalarProperty Name="Credit_Hours" ColumnName="Credit_Hours" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Facutlies">
+            <EntityTypeMapping TypeName="FINALPROJECTModel.Facutly">
+              <MappingFragment StoreEntitySet="Facutly">
+                <ScalarProperty Name="Teacher_ID" ColumnName="Teacher_ID" />
+                <ScalarProperty Name="Teacher_Email" ColumnName="Teacher_Email" />
+                <ScalarProperty Name="Teacher_Phone" ColumnName="Teacher_Phone" />
+                <ScalarProperty Name="Teacher_Name" ColumnName="Teacher_Name" />
+                <ScalarProperty Name="Teacher_Address" ColumnName="Teacher_Address" />
+                <ScalarProperty Name="Teacher_Image" ColumnName="Teacher_Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fees">
+            <EntityTypeMapping TypeName="FINALPROJECTModel.Fee">
+              <MappingFragment StoreEntitySet="Fees">
+                <ScalarProperty Name="Fees_Collection_id" ColumnName="Fees_Collection_id" />
+                <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Total_Fees" ColumnName="Total_Fees" />
+                <ScalarProperty Name="Amount_Paid" ColumnName="Amount_Paid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grades">
+            <EntityTypeMapping TypeName="FINALPROJECTModel.Grade">
+              <MappingFragment StoreEntitySet="Grade">
+                <ScalarProperty Name="Grade_id" ColumnName="Grade_id" />
+                <ScalarProperty Name="Grade1" ColumnName="Grade" />
+                <ScalarProperty Name="Min_Marks" ColumnName="Min_Marks" />
+                <ScalarProperty Name="Max_Marks" ColumnName="Max_Marks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marks">
+            <EntityTypeMapping TypeName="FINALPROJECTModel.Mark">
+              <MappingFragment StoreEntitySet="Marks">
+                <ScalarProperty Name="Marks_ID" ColumnName="Marks_ID" />
+                <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
+                <ScalarProperty Name="Class_ID" ColumnName="Class_ID" />
+                <ScalarProperty Name="Assignment_Marks" ColumnName="Assignment_Marks" />
+                <ScalarProperty Name="Quiz_Marks" ColumnName="Quiz_Marks" />
+                <ScalarProperty Name="Mid_Marks" ColumnName="Mid_Marks" />
+                <ScalarProperty Name="Final_Marks" ColumnName="Final_Marks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quizs">
+            <EntityTypeMapping TypeName="FINALPROJECTModel.Quiz">
+              <MappingFragment StoreEntitySet="Quiz">
+                <ScalarProperty Name="Quiz_ID" ColumnName="Quiz_ID" />
+                <ScalarProperty Name="Class_ID" ColumnName="Class_ID" />
+                <ScalarProperty Name="Total_Marks" ColumnName="Total_Marks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quiz_Submission">
+            <EntityTypeMapping TypeName="FINALPROJECTModel.Quiz_Submission">
+              <MappingFragment StoreEntitySet="Quiz_Submission">
+                <ScalarProperty Name="Quiz_Submission_id" ColumnName="Quiz_Submission_id" />
+                <ScalarProperty Name="Quiz_ID" ColumnName="Quiz_ID" />
+                <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
+                <ScalarProperty Name="Marks_Obtained" ColumnName="Marks_Obtained" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salaries">
+            <EntityTypeMapping TypeName="FINALPROJECTModel.Salary">
+              <MappingFragment StoreEntitySet="Salaries">
+                <ScalarProperty Name="Salary_ID" ColumnName="Salary_ID" />
+                <ScalarProperty Name="Teacher_ID" ColumnName="Teacher_ID" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Gross_Salary" ColumnName="Gross_Salary" />
+                <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+                <ScalarProperty Name="Deductions" ColumnName="Deductions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="FINALPROJECTModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
+                <ScalarProperty Name="Student_Email" ColumnName="Student_Email" />
+                <ScalarProperty Name="Student_Phone" ColumnName="Student_Phone" />
+                <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+                <ScalarProperty Name="Student_Address" ColumnName="Student_Address" />
+                <ScalarProperty Name="Student_Image" ColumnName="Student_Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="FINALPROJECTModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Acc_ID" ColumnName="Acc_ID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
